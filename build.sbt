@@ -13,6 +13,10 @@ libraryDependencies ++= Seq(
   javaEbean,
   cache,
   javaWs,
-  "mysql" % "mysql-connector-java" % "5.1.20",
-  "commons-io" % "commons-io" % "2.4"
+  "mysql" % "mysql-connector-java" % "5.1.31",
+  "commons-io" % "commons-io" % "2.4",
+  "javax.mail" % "mail" % "1.4.5",
+  "com.typesafe.play.plugins" %% "play-plugins-mailer" % "2.3.0",
+  "com.typesafe.play.plugins" %% "play-plugins-util" % "2.3.0",
+  "org.glassfish.web" % "javax.el" % "2.2.6"
 )

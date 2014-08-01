@@ -3,12 +3,20 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
-GET     /eventos/novo               controllers.EventosController.novo()
-POST    /eventos                    controllers.EventosController.cria()
+GET     /                                   controllers.Application.index()
+
+# Eventos
+GET     /eventos/novo                       controllers.EventosController.novo()
+# GET   /eventos/:id                        controllers.EventosController.visualiza(id:Integer)
+POST    /eventos                            controllers.EventosController.cria()
+GET     /evento/admin/aprova/:id            controllers.admin.TodosEventosController.aprova(id:Integer)
+
+# Usuarios
+# POST     /usuarios/novo                   controllers.admin.UsuariosController.cria()
 
 # Outras Rotas
-GET     /eventos                    controllers.EventosController.lista()
+GET     /eventos                            controllers.EventosController.lista()
+GET     /eventos/admin                      controllers.admin.TodosEventosController.todos()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file                       controllers.Assets.at(path="/public", file)

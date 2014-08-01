@@ -37,6 +37,7 @@ public class Evento {
     private Calendar dataDeInicio;
     private Calendar dataDeFim;
     private String caminhoImagem;
+    private boolean aprovado;
 
     public Integer getId() {
         return id;
@@ -116,6 +117,14 @@ public class Evento {
 
     public void setCaminhoImagem(String caminhoImagem) {
         this.caminhoImagem = caminhoImagem;
+    }
+
+    public boolean isAprovado() {
+        return aprovado;
+    }
+
+    public void setAprovado(boolean aprovado) {
+        this.aprovado = aprovado;
     }
 
     public List<ValidationError> validate() {

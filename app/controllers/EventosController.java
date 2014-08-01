@@ -1,5 +1,6 @@
 package controllers;
 
+import actions.ControladorDeEmails;
 import com.avaje.ebean.Ebean;
 import models.Evento;
 import org.apache.commons.io.FileUtils;
@@ -37,6 +38,7 @@ public class EventosController extends Controller {
         } catch (RuntimeException exception) {
             destino.delete();
         }
+        ControladorDeEmails.informaNovo(evento);
         return redirect(controllers.routes.EventosController.lista());
 
     }
@@ -59,5 +61,9 @@ public class EventosController extends Controller {
     private static File arquivoDeDestino(Http.MultipartFormData.FilePart destaque) {
         return new File("public/images/destaques", System.currentTimeMillis()
                 + "_" + destaque.getFilename());
+    }
+
+    private static Result visualiza() {
+        return TODO;
     }
 }
