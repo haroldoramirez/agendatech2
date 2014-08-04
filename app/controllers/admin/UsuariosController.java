@@ -1,5 +1,6 @@
 package controllers.admin;
 
+
 import akka.util.Crypt;
 import com.avaje.ebean.Ebean;
 import models.Usuario;
@@ -11,7 +12,7 @@ import play.mvc.Result;
 /**
  * Created by haroldo on 01/08/14.
  */
-public class UsuariosController extends Controller{
+public class UsuariosController extends Controller {
 
     private static Form<DynamicForm.Dynamic> form = Form.form();
 

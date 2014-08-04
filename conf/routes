@@ -12,7 +12,13 @@ POST    /eventos                            controllers.EventosController.cria()
 GET     /evento/admin/aprova/:id            controllers.admin.TodosEventosController.aprova(id:Integer)
 
 # Usuarios
-# POST     /usuarios/novo                   controllers.admin.UsuariosController.cria()
+GET 	/usuarios 	                        controllers.admin.UsuariosController.form()
+POST 	/usuarios 	                        controllers.admin.UsuariosController.cria()
+
+# Autenticação
+GET 	/login						        controllers.LoginController.form()
+POST 	/login						        controllers.LoginController.loga()
+GET 	/logout						        controllers.LoginController.logout()
 
 # Outras Rotas
 GET     /eventos                            controllers.EventosController.lista()

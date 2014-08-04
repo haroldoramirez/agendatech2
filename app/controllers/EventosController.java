@@ -4,7 +4,11 @@ import actions.ControladorDeEmails;
 import com.avaje.ebean.Ebean;
 import models.Evento;
 import org.apache.commons.io.FileUtils;
+import persistencia.Eventos;
+import play.api.http.MediaRange;
+import play.cache.Cache;
 import play.data.Form;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
@@ -44,8 +48,25 @@ public class EventosController extends Controller {
     }
 
     public static Result lista() {
-        List<Evento> eventos = Ebean.find(Evento.class).findList();
-        return ok(views.html.eventos.lista.render(eventos));
+        List<Evento> aprovados = Eventos.aprovados(true);
+        MediaRange media = request().acceptedTypes().get(0);
+        String mediaType = media.toString();
+        
+        if(Cache.get("home_"+mediaType)!=null) {
+            Status status = (Status) Cache.get("home_"+mediaType);
+            return status;
+        }
+        if(request().accepts("text/html")){
+            Status status = ok(views.html.eventos.lista.render(aprovados));
+            Cache.set("home_text/html",status);
+            return status;
+        }
+        if(request().accepts("application/json")) {
+            Status status = ok(Json.toJson(aprovados));
+            Cache.set("home_application/json", status);
+            return status;
+        }
+        return status(NOT_ACCEPTABLE);
     }
 
     private static File gravaDestaque() throws IOException {
@@ -63,7 +84,4 @@ public class EventosController extends Controller {
                 + "_" + destaque.getFilename());
     }
 
-    private static Result visualiza() {
-        return TODO;
-    }
 }
