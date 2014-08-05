@@ -1,26 +1,43 @@
 @(eventoForm:Form[Evento])
 @import helper._
+<!DOCTYPE html>
 <html>
+	   <head>
+        <title>Novo Evento </title>
+        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        
+         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="@routes.Assets.at("javascripts/jquery-2.1.1.min.js")" type="text/javascript"></script>
+        
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>	
+    </head>
 <body>
-    @form(routes.EventosController.cria(),'enctype -> "multipart/form-data") {
+		@menu()
+		<div class="container-fluid">
+   		@form(routes.EventosController.cria(),'enctype -> "multipart/form-data") {
 
-        @inputText(eventoForm("nome"))
-        @inputText(eventoForm("emailParaContato"))
-        @textarea(eventoForm("descricao"))
-        <select name="estado">
-            @for(estado <- Estado.values) {
-                <option value="@estado.name">@estado.name</option>
-            }
-        </select>
-        @inputText(eventoForm("site"))
-        @inputText(eventoForm("twitter"))
-        <fieldset>
-            <legend>Periodo</legend>
-                 @inputDate(eventoForm("dataDeInicio"))
-                 @inputDate(eventoForm("dataDeFim"))
-            </fieldset>
-        @inputFile(eventoForm("destaque"))
-        <input type="submit" value="Novo evento">
-    }
+	        @inputText(eventoForm("nome"))
+	        @inputText(eventoForm("emailParaContato"))
+	        @textarea(eventoForm("descricao"))
+	        <select name="estado">
+	            @for(estado <- Estado.values) {
+	                <option value="@estado.name">@estado.name</option>
+	            }
+	        </select>
+	        @inputText(eventoForm("site"))
+	        @inputText(eventoForm("twitter"))
+	        <fieldset>
+	            <legend>Periodo</legend>
+	                 @inputDate(eventoForm("dataDeInicio"))
+	                 @inputDate(eventoForm("dataDeFim"))
+	            </fieldset>
+	        @inputFile(eventoForm("destaque"))
+	        <input type="submit" value="Novo evento">
+    	}
+	</div>
 </body>
 </html>
