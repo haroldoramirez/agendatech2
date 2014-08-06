@@ -7,14 +7,13 @@ GET     /                                   controllers.Application.index()
 
 # Eventos
 GET     /eventos/novo                       controllers.EventosController.novo()
-# GET   /eventos/:id                        controllers.EventosController.visualiza(id:Integer)
 POST    /eventos                            controllers.EventosController.cria()
-GET     /evento/admin/aprova/:id            controllers.admin.TodosEventosController.aprova(id:Integer)
 GET     /eventos                            controllers.EventosController.lista()
+GET     /evento/admin/aprova/:id            controllers.admin.TodosEventosController.aprova(id:Integer)
 
 # Usuarios
-GET 	/usuarios/novo	                    controllers.admin.UsuariosController.form()
-POST 	/usuarios 	                        controllers.admin.UsuariosController.cria()
+GET 	/usuarios/novo                    	controllers.admin.UsuariosController.form()
+POST 	/usuarios	            	        controllers.admin.UsuariosController.cria()
 
 # Autenticação
 GET 	/login						        controllers.LoginController.form()

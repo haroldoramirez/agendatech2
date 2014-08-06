@@ -2,11 +2,13 @@ package models;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
+
 import play.data.validation.Constraints;
 import play.data.validation.ValidationError;
 import validations.FromNow;
 
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -139,4 +141,100 @@ public class Evento {
 
         return errors.isEmpty() ? null : errors;
     }
+
+	@Override
+	public String toString() {
+		return "Evento [id=" + id + ", emailParaContato=" + emailParaContato
+				+ ", estado=" + estado + ", descricao=" + descricao + ", site="
+				+ site + ", twitter=" + twitter + ", nome=" + nome
+				+ ", dataDeInicio=" + dataDeInicio + ", dataDeFim=" + dataDeFim
+				+ ", caminhoImagem=" + caminhoImagem + ", aprovado=" + aprovado
+				+ "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (aprovado ? 1231 : 1237);
+		result = prime * result
+				+ ((caminhoImagem == null) ? 0 : caminhoImagem.hashCode());
+		result = prime * result
+				+ ((dataDeFim == null) ? 0 : dataDeFim.hashCode());
+		result = prime * result
+				+ ((dataDeInicio == null) ? 0 : dataDeInicio.hashCode());
+		result = prime * result
+				+ ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime
+				* result
+				+ ((emailParaContato == null) ? 0 : emailParaContato.hashCode());
+		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((site == null) ? 0 : site.hashCode());
+		result = prime * result + ((twitter == null) ? 0 : twitter.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Evento other = (Evento) obj;
+		if (aprovado != other.aprovado)
+			return false;
+		if (caminhoImagem == null) {
+			if (other.caminhoImagem != null)
+				return false;
+		} else if (!caminhoImagem.equals(other.caminhoImagem))
+			return false;
+		if (dataDeFim == null) {
+			if (other.dataDeFim != null)
+				return false;
+		} else if (!dataDeFim.equals(other.dataDeFim))
+			return false;
+		if (dataDeInicio == null) {
+			if (other.dataDeInicio != null)
+				return false;
+		} else if (!dataDeInicio.equals(other.dataDeInicio))
+			return false;
+		if (descricao == null) {
+			if (other.descricao != null)
+				return false;
+		} else if (!descricao.equals(other.descricao))
+			return false;
+		if (emailParaContato == null) {
+			if (other.emailParaContato != null)
+				return false;
+		} else if (!emailParaContato.equals(other.emailParaContato))
+			return false;
+		if (estado != other.estado)
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (site == null) {
+			if (other.site != null)
+				return false;
+		} else if (!site.equals(other.site))
+			return false;
+		if (twitter == null) {
+			if (other.twitter != null)
+				return false;
+		} else if (!twitter.equals(other.twitter))
+			return false;
+		return true;
+	}
+    
 }

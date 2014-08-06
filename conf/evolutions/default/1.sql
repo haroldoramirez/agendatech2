@@ -15,7 +15,7 @@ create table evento (
   data_de_fim               timestamp,
   caminho_imagem            varchar(255),
   aprovado                  boolean,
-  constraint ck_evento_estado check (estado in ('ACRE','ALAGOAS','AMAZONAS','BAHIA','CEARA','DISTRITO_FEDERAL','ESPIRITO_SANTO','GOIAS','MINAS_GERAIS','MATO_GROSSO','MATO_GROSSO_SUL','PARA','PARAIBA','PERNAMBUCO','PIAUI','PARANA','RIO_DE_JANEIRO','RONDONIA','RIO_GRANDE_SUL','RORAIMA','SANTA_CATARINA','SERGIPE','SAO_PAULO','TOCANTINS')),
+  constraint ck_evento_estado check (estado in ('ACRE','ALAGOAS','AMAZONAS','BAHIA','CEARÁ','DISTRITO_FEDERAL','ESPÍRITO_SANTO','GOIÁS','MINAS_GERAIS','MATO_GROSSO','MATO_GROSSO_SUL','PARÁ','PARAÍBA','PERNAMBUCO','PIAUÍ','PARANÁ','RIO_DE_JANEIRO','RONDÕNIA','RIO_GRANDE_SUL','RORAIMA','SANTA_CATARINA','SERGIPE','SÃO_PAULO','TOCANTINS')),
   constraint pk_evento primary key (id))
 ;
 

@@ -16,6 +16,7 @@
     </head>
 <body>
 	@menu()
+	<h2>Lista de Eventos</h2>
     <ul>
          @for(evento <- eventos) {
              <li>@evento.getNome() - @evento.getSite()</li>

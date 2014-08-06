@@ -1,8 +1,8 @@
-@(naoAprovados:List[Evento],aprovados:List[Evento])
+@(usuarios:List[Usuario])
 <!DOCTYPE html>
 <html>
-   <head>
-        <title>Lista de Todos os Eventos </title>
+	   <head>
+        <title>Lista de Todos os Usuários </title>
         <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
         
         <!-- Bootstrap -->
@@ -14,25 +14,17 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script type="text/javascript" src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>	
     </head>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
 <body>
 	@menu()
-	<h2>Lista de todos os Eventos</h2>
-	<div class="container-fluid">
-        <h3>Não aprovados</h3>
-        <ul>
-            @for(evento <- naoAprovados) {
-            <li>@evento.getNome() -
-                <a href="@admin.routes.TodosEventosController.aprova(evento.getId())">Aprovar</a>
-            </li>
-            }
-        </ul>
-        <hr/>
-        <h3>Aprovados</h3>
-        <ul>
-            @for(evento <- aprovados) {
-            <li>@evento.getNome()</li>
-            }
-        </ul>
-     </div>
+	<h2>Lista de todos os Usuários</h2>
+	<ul>
+         @for(usuario <- usuarios) {
+             <li>@usuario.getEmail</li>
+         }
+    </ul>
 </body>
 </html>
